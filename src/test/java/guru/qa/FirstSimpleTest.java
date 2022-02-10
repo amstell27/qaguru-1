@@ -9,7 +9,6 @@ import org.junit.jupiter.api.*;
     @DisplayName("Простенький тест на assertEquals")
     @Test
     void firstTest() {
-
         Assertions.assertEquals(1,1);
     }
 }
