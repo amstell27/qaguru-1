@@ -28,7 +28,8 @@ public class PracticeTestForm {
 
         registrationPage.openPage()
                 .setFirstName(firstName)
-                .setLastName(lastName);
+                .setLastName(lastName)
+                .setBirthDate("26", "June", "1992");
         $("#lastName").setValue("Alexeev");
         $("#userEmail").setValue("emain@email.com");
 
@@ -36,10 +37,8 @@ public class PracticeTestForm {
 
         $("#userNumber").setValue("8002000500");
 
-        $("#dateOfBirthInput").click();
-        $("[class='react-datepicker__month-select']").selectOption("June");
-        $("[class='react-datepicker__year-select']").selectOption("1992");
-        $("[class='react-datepicker__day react-datepicker__day--025']").click();
+        registrationPage.setBirthDate("26", "June", "1992");
+
 
         $("#subjectsInput").setValue("Chemistry").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();

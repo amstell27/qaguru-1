@@ -1,6 +1,7 @@
 package guru.qa.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import guru.qa.pages.components.CalendarComponent;
 
 
 import static com.codeborne.selenide.CollectionCondition.texts;
@@ -10,6 +11,8 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class RegistrationPage {
+    //components
+    private CalendarComponent calendarComponent = new CalendarComponent();
     //locators
     //$("#firstName")
     private SelenideElement
@@ -39,6 +42,13 @@ public class RegistrationPage {
 
         lastNameInput.setValue(lastName);
         return this;
+    }
+
+    public void setBirthDate(String day, String month, String year) {
+
+        $("#dateOfBirthInput").click();
+        calendarComponent.setDate(day, month, year);
+
     }
 
     public RegistrationPage checkForm(String fieldName, String value) {
