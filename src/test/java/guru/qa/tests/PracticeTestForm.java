@@ -14,6 +14,9 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class PracticeTestForm {
 
+    RegistrationPage registrationPage = new RegistrationPage();
+    String firstName = "Alex";
+    String lastName = " Alexeev";
     @BeforeAll
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
@@ -23,9 +26,9 @@ public class PracticeTestForm {
     @Test
     void automationPracticeTests() {
 
-        open("/automation-practice-form");
-        new RegistrationPage().setFirstName("Alex");
-        new RegistrationPage().setLastName("Alexeev");
+        registrationPage.openPage()
+                .setFirstName(firstName)
+                .setLastName(lastName);
         $("#lastName").setValue("Alexeev");
         $("#userEmail").setValue("emain@email.com");
 
@@ -64,9 +67,10 @@ public class PracticeTestForm {
         $$(".table-responsive tr").filterBy(text("Address")).shouldBe(texts("Current Address"));
         $$(".table-responsive tr").filterBy(text("State and City")).shouldBe(texts("NCR Delhi"));
 
-        new RegistrationPage().checkForm("Student Name", "Alex Alexeev");
-        new RegistrationPage().checkForm("Gender", "Male");
-        new RegistrationPage().checkForm("Student Email", "emain@email.com");
+        registrationPage
+                .checkForm("Student Name", firstName + lastName)
+                .checkForm("Gender", "Male")
+                .checkForm("Student Email", "emain@email.com");
 
     }
 }
