@@ -14,7 +14,6 @@ public class RegistrationPage {
     //components
     private CalendarComponent calendarComponent = new CalendarComponent();
     //locators
-    //$("#firstName")
     private SelenideElement
             headerTitle = $(".practice-form-wrapper"),
             firstNameInput = $("#firstName"),
@@ -22,8 +21,6 @@ public class RegistrationPage {
             resultsTable = $(".table-responsive");
 
     //actions
-    //setValue("Alex");
-
     public RegistrationPage openPage() {
         open("/automation-practice-form");
         headerTitle.shouldHave(text("Students Registration Form"));
