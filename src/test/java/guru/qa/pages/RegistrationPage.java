@@ -23,7 +23,7 @@ public class RegistrationPage {
     //actions
     public RegistrationPage openPage() {
         open("/automation-practice-form");
-        headerTitle.shouldHave(text("Students Registration Form"));
+        headerTitle.shouldHave(text("Student Registration Form"));
 
         return this;
     }

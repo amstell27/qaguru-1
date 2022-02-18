@@ -23,7 +23,10 @@ public class PracticeTestFormWithTestBase extends TestBase {
     void automationPracticeTests() {
 
         registrationPage.openPage();
-        registrationPage.setFirstName(firstName).setLastName(lastName).setBirthDate("26", "June", "1992");
+        registrationPage
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setBirthDate("26", "June", "1992");
         $("#lastName").setValue("Alexeev");
         $("#userEmail").setValue("emain@email.com");
 
@@ -60,7 +63,10 @@ public class PracticeTestFormWithTestBase extends TestBase {
         $$(".table-responsive tr").filterBy(text("Address")).shouldBe(texts("Current Address"));
         $$(".table-responsive tr").filterBy(text("State and City")).shouldBe(texts("NCR Delhi"));
 
-        registrationPage.checkForm("Student Name", firstName + lastName).checkForm("Gender", "Male").checkForm("Student Email", "emain@email.com");
+        registrationPage
+                .checkForm("Student Name", firstName + lastName)
+                .checkForm("Gender", "Male")
+                .checkForm("Student Email", "emain@email.com");
 
     }
 }
